@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crashloopback-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crashloopback
+  template:
+    metadata:
+      labels:
+        app: crashloopback
+    spec:
+      containers:
+      - name: crashloopback-pod
+        image: busybox:1.35
+        command: ["/bin/sh"]
+        args: ["-c", "happy k8s"]

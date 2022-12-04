@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imagepullbackerror-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: imagepullbackerror
+  template:
+    metadata:
+      labels:
+        app: imagepullbackerror
+    spec:
+      containers:
+      - name: imagepullbackerror-pod
+        image: busyboxhappyk8s:1.35
